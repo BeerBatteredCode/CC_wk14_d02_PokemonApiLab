@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PokemonContainer from './containers/PokemonContainer';
 
 const App = (props) => {
