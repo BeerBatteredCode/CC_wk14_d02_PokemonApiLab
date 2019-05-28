@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const PokemonSelector = (props) => {
     const options = props.pokemon.map((pokemon, index) => {
@@ -6,7 +6,7 @@ const PokemonSelector = (props) => {
     });
 
     function handleSelectChange(evt) {
-        const selectedIndex = ext.target.value;
+        const selectedIndex = evt.target.value;
         props.onPokemonSelected(selectedIndex);
     }
 
@@ -14,7 +14,7 @@ const PokemonSelector = (props) => {
         <select
         onChange={ handleSelectChange }
         >
-            <option disabled value="default">Choose a Pokemon.... loser</option>
+            <option disabled value="default">Choose a Pokemon....</option>
             { options }
         </select>
     )

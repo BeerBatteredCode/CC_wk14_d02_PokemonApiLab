@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PokemonSelector from '../components/PokemonSelector';
+import PokemonDetail from '../components/PokemonDetail';
 
 class PokemonContainer extends Component {
     constructor(props){
@@ -8,22 +9,22 @@ class PokemonContainer extends Component {
             pokemon: [],
             selectedPokemon: null
         };
-
         this.selectPokemon = this.selectPokemon.bind(this);
     }
 
     componentDidMount(){
-        const url = 'http://pokeapi.co/api/v2/pokemon/?limit=50';
+        const url = 'http://pokeapi.co/api/v2/pokemon/?limit=151';
         fetch(url)
-            .then(res = res.json())
+            .then(res => res.json())
             .then((pokemon) => {
-                this.setState({ pokemon: pokemon });
+                this.setState({ pokemon: pokemon.results });
             });
     }
 
     selectPokemon(selectedIndex){
         const selectedPokemon = this.state.pokemon[selectedIndex];
-        this.setState({ selectPokemon: selectedPokemon })
+        console.log(selectedPokemon)
+        this.setState({ selectedPokemon: selectedPokemon })
     }
 
     render(){
