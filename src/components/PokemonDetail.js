@@ -9,7 +9,10 @@ const PokemonDetail = ({pokemon}) => {
 
     return (
         <>
-            <h3>{pokemon.name}</h3>
+            <img alt="sprite" src={pokemon.sprites.front_default}/>
+            <h3>Name: {pokemon.name}</h3>
+            <p>Height: {pokemon.height}</p>
+            <p>Ability: {pokemon.abilities[0].ability.name}</p>
         </>
     )
 }

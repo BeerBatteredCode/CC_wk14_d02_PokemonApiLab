@@ -23,8 +23,13 @@ class PokemonContainer extends Component {
 
     selectPokemon(selectedIndex){
         const selectedPokemon = this.state.pokemon[selectedIndex];
-        console.log(selectedPokemon)
-        this.setState({ selectedPokemon: selectedPokemon })
+        const url2 = selectedPokemon.url
+        fetch(url2)
+            .then(res => res.json())
+            .then((selectedPokemon) => {
+                this.setState({ selectedPokemon: selectedPokemon });
+                console.log(selectedPokemon);
+            });
     }
 
     render(){
@@ -34,6 +39,7 @@ class PokemonContainer extends Component {
                 <PokemonSelector
                     pokemon ={ this.state.pokemon }
                     onPokemonSelected={ this.selectPokemon }/>
+                    <br></br>
                 <PokemonDetail
                     pokemon={ this.state.selectedPokemon }/>
             </>
